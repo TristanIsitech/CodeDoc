@@ -1,0 +1,174 @@
+{
+  "main": {
+    "id": "5c41e93457d0b1e6",
+    "type": "split",
+    "children": [
+      {
+        "id": "e7c5625a574246a1",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "451d68492eb27518",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Cours Isitech/Cours React/Cours React.js.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "b3a23fa18652b376",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Cours Isitech/Cours React/Projet Connexion API.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ],
+        "currentTab": 1
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "bdf0aeb634d8427c",
+    "type": "split",
+    "children": [
+      {
+        "id": "15951c0d026fc29c",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "e4eb0a2efee41808",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "0632c795ad487cdd",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "aa33e98aebd865cc",
+            "type": "leaf",
+            "state": {
+              "type": "starred",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 249.5
+  },
+  "right": {
+    "id": "a493c840a34659b6",
+    "type": "split",
+    "children": [
+      {
+        "id": "294c9e6bbe30af75",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "39ee41a0ccce4cd5",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Cours Isitech/Cours React/Projet Connexion API.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "e93e861b1b2335a1",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Cours Isitech/Cours React/Projet Connexion API.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "258aadca0c4815fa",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "151f16fd9747ef71",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Cours Isitech/Cours React/Projet Connexion API.md"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Ouvrir le sélecteur rapide": false,
+      "graph:Ouvrir la vue graphique": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Ouvrir la note quotidienne": false,
+      "templates:Insérer le modèle": false,
+      "command-palette:Ouvrir la palette de commandes": false
+    }
+  },
+  "active": "b3a23fa18652b376",
+  "lastOpenFiles": [
+    "Cours Isitech/Cours React/Cours React.js.md",
+    "Plus Perso/PokeApi Doc.md",
+    "AutoFormation/Node.js/Clean-Architecture/ExpressJs Application.md",
+    "AutoFormation/Node.js/Clean-Architecture/SequilizeJs API application.md",
+    "AutoFormation/Node.js/Clean-Architecture/Pasted image 20221216113441.png",
+    "AutoFormation/Mobil/NET MAUI Blazor/Les bases (Youtube).md",
+    "Cours Isitech/Cours C Sharp/Création API/Mise en place Dotnet.md",
+    "Cours Isitech/Ds - QCM/QCM C Sharp.md",
+    "Cours Isitech/Cours C Sharp/Création API/Pasted image 20221214143257.png"
+  ]
+}
