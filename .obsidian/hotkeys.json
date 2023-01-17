@@ -1,1 +1,11 @@
-{}
+{
+  "window:zoom-out": [
+    {
+      "modifiers": [
+        "Mod",
+        "Shift"
+      ],
+      "key": "6"
+    }
+  ]
+}

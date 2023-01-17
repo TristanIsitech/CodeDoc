@@ -1,5 +1,9 @@
 Requet GET 
 https://pokeapi.co/api/v2/pokemon/{Pokemon_Name_Anglais}/
+https://pokeapi.co/api/v2/pokemon/{Pokemon_Id}/
+
+905 Pokemon au total
+A!! Tous les pokemons n'ont pas de forme shiny
 
 # Traitement :
 
@@ -17,3 +21,5 @@ https://pokeapi.co/api/v2/pokemon/{Pokemon_Name_Anglais}/
 #### Images
 - Default : sprites.other.home.front_default
 - Default : sprites.other.home.front_shiny
+#### Evolution
+??
