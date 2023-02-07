@@ -4,22 +4,35 @@
     "type": "split",
     "children": [
       {
-        "id": "cee34efad420f8bb",
+        "id": "bf0d450c018bd000",
         "type": "tabs",
         "children": [
           {
-            "id": "49c0e1bed956dbdf",
+            "id": "f035d7938333756d",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Cours Isitech/Cours React/Cours React.js.md",
+                "file": "Cours Isitech/Mongo DB/Cours Mongo DB.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "6c1499428dad8ef2",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Exo Mongo DB.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -80,35 +93,6 @@
         "type": "tabs",
         "children": [
           {
-            "id": "39ee41a0ccce4cd5",
-            "type": "leaf",
-            "state": {
-              "type": "backlink",
-              "state": {
-                "file": "Cours Isitech/Cours React/Cours React.js.md",
-                "collapseAll": false,
-                "extraContext": false,
-                "sortOrder": "alphabetical",
-                "showSearch": false,
-                "searchQuery": "",
-                "backlinkCollapsed": false,
-                "unlinkedCollapsed": true
-              }
-            }
-          },
-          {
-            "id": "e93e861b1b2335a1",
-            "type": "leaf",
-            "state": {
-              "type": "outgoing-link",
-              "state": {
-                "file": "Cours Isitech/Cours React/Cours React.js.md",
-                "linksCollapsed": false,
-                "unlinkedCollapsed": true
-              }
-            }
-          },
-          {
             "id": "258aadca0c4815fa",
             "type": "leaf",
             "state": {
@@ -125,12 +109,41 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Cours Isitech/Cours React/Cours React.js.md"
+                "file": "Exo Mongo DB.md"
+              }
+            }
+          },
+          {
+            "id": "755c530700db0962",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Exo Mongo DB.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "4878459d3816076e",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Exo Mongo DB.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
               }
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -146,17 +159,17 @@
       "command-palette:Ouvrir la palette de commandes": false
     }
   },
-  "active": "49c0e1bed956dbdf",
+  "active": "6c1499428dad8ef2",
   "lastOpenFiles": [
-    "AutoFormation/Mobil/NET MAUI Blazor/Les bases.md",
-    "AutoFormation/Node.js/Express.js/ExpressJs Cleen Architechture.md",
-    "AutoFormation/Node.js/Express.js/SequilizeJs API application.md",
-    "Cours Isitech/Cours React/Cours React.js.md",
+    "Cours Isitech/Mongo DB/Cours Mongo DB.md",
+    "Exo Mongo DB.md",
     "Doc API web free/PokeApi Doc.md",
-    "Cours Isitech/Cours React/Projet Connexion API.md",
-    "ToDo/ToDo.md",
-    "Cours Isitech/Cours C Sharp/Création API/QCM.md",
-    "Cours Isitech/Cours C Sharp/Création API/Pasted image 20221214143257.png",
-    "Cours Isitech/Cours C Sharp/Création API/Mise en place Dotnet.md"
+    "Cours Isitech/Cours React/Cours React.js.md",
+    "AutoFormation/Mobil/React Native/Les bases.md",
+    "Cours Isitech/Cours C Sharp/Création API/Mise en place Dotnet.md",
+    "AutoFormation/Node.js/Express.js/ExpressJs Cleen Architechture.md",
+    "AutoFormation/Mobil/NET MAUI Blazor/Les bases.md",
+    "AutoFormation/Node.js/Express.js/SequilizeJs API application.md",
+    "Projet BDD.md"
   ]
 }
