@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Cours Isitech/Mongo DB/Cours Mongo DB.md",
+                "file": "Cours Isitech/Mongo DB/Exo Mongo DB.md",
                 "mode": "source",
                 "source": false
               }
@@ -25,7 +25,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "TP MongoDB Note Restaurants.md",
+                "file": "Cours Isitech/Mongo DB/TP MongoDB Note Restaurants.md",
                 "mode": "source",
                 "source": false
               }
@@ -35,16 +35,11 @@
             "id": "ba055232e389241f",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Cours Isitech/Mongo DB/QCM.md",
-                "mode": "preview",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -121,7 +116,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "TP MongoDB Note Restaurants.md"
+                "file": "Cours Isitech/Mongo DB/Exo Mongo DB.md"
               }
             }
           },
@@ -131,7 +126,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "TP MongoDB Note Restaurants.md",
+                "file": "Cours Isitech/Mongo DB/Exo Mongo DB.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -148,7 +143,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "TP MongoDB Note Restaurants.md",
+                "file": "Cours Isitech/Mongo DB/Exo Mongo DB.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -171,17 +166,17 @@
       "command-palette:Ouvrir la palette de commandes": false
     }
   },
-  "active": "6c1499428dad8ef2",
+  "active": "f035d7938333756d",
   "lastOpenFiles": [
+    "Cours Isitech/Mongo DB/TP MongoDB Note Restaurants.md",
+    "Cours Isitech/Mongo DB/Exo Mongo DB.md",
     "Cours Isitech/Mongo DB/Cours Mongo DB.md",
-    "TP MongoDB Note Restaurants.md",
-    "Cours Isitech/Mongo DB/QCM.md",
-    "Exo Mongo DB.md",
+    "Cours Isitech/Mongo DB/Pasted image 20230209161127.png",
+    "Cours Isitech/Mongo DB/Pasted image 20230209161141.png",
+    "Cours Isitech/Mongo DB/Pasted image 20230209161157.png",
     "Cours Isitech/Mongo DB/Pasted image 20230209161211.png",
+    "Cours Isitech/Mongo DB/QCM.md",
     "Pasted image 20230208140011.png",
-    "Doc API web free/PokeApi Doc.md",
-    "Cours Isitech/Cours React/Cours React.js.md",
-    "AutoFormation/Mobil/React Native/Les bases.md",
-    "Cours Isitech/Cours C Sharp/Création API/Mise en place Dotnet.md"
+    "Doc API web free/PokeApi Doc.md"
   ]
 }

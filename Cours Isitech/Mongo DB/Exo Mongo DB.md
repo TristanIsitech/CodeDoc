@@ -637,3 +637,357 @@ db.salles.find({
    }
 }, { "_id": 0, "nom": 1 })
 ```
+
+# Aggregation.md
+
+## Exercice 1
+
+Écrivez le pipeline qui affichera dans un champ nommé ville le nom de celles abritant une salle de plus de 50 personnes ainsi qu’un booléen nommé grande qui sera positionné à la valeur « vrai » lorsque la salle dépasse une capacité de 1 000 personnes. 
+ 
+```JS
+db.salles.aggregate([
+    {
+        $match: {
+            "capacite": {
+                $gt: 50
+            }
+        }
+    },
+    {
+        $project: {
+            "ville": "$adresse.ville",
+            "grande": { $gt: [ "$capacite", 1000 ] }
+        }
+    }
+])
+```
+
+## Exercice 2
+
+Écrivez le pipeline qui affichera dans un champ nommé apres_extension la capacité d’une salle augmentée de 100 places, dans un champ nommé avant_extension sa capacité originelle, ainsi que son nom.
+
+```JS
+db.salles.aggregate([
+    {
+        $project: {
+            "apres_extension": {
+                $add: [ "$capacite", 100 ]
+            },
+            "avant_extension": "$capacite",
+            "nom": "$nom"
+       }
+    }
+])
+```
+
+## Exercice 3
+
+Écrivez le pipeline qui affichera, par numéro de département, la capacité totale des salles y résidant. Pour obtenir ce numéro, il vous faudra utiliser l’opérateur $substrBytes dont la syntaxe est la suivante :
+
+```JS
+db.salles.aggregate([
+    {
+        $group: {
+            "_id": {
+                $substrBytes: [ "$adresse.codePostal", 0, 2 ]
+            },
+            "capacite": {
+                $sum: "$capacite"
+            }
+        }
+    }
+])
+```
+
+## Exercice 4
+
+Écrivez le pipeline qui affichera, pour chaque style musical, le nombre de salles le programmant. Ces styles seront classés par ordre alphabétique.
+
+```JS
+db.salles.aggregate([
+    {
+        $unwind: "$styles"
+    },
+    {
+        $group: {
+            "_id": "$styles",
+            "number": {
+                $sum: 1
+            },
+        }
+    }
+])
+```
+
+## Exercice 5
+
+À l’aide des buckets, comptez les salles en fonction de leur capacité :
+- celles de 100 à 500 places
+- celles de 500 à 5000 places  
+
+```JS
+db.salles.aggregate([
+    {
+        $bucket: {
+            groupBy: "$capacite",
+            boundaries: [ 100, 500, 5000 ],
+            output: {
+                "count": { $sum: 1 }
+            }
+        }
+    }
+])
+```
+
+## Exercice 6
+
+Écrivez le pipeline qui affichera le nom des salles ainsi qu’un tableau nommé avis_excellents qui contiendra uniquement les avis dont la note est de 10.
+
+```JS
+db.salles.aggregate([
+    {
+        $project: {
+            "nom": "$nom",
+            "avis_excellents": {
+                $filter: {
+                    "input": "$avis",
+                    "as": "notice",
+                    "cond": {
+                        $eq: [
+                            "$$notice.note",
+                            10
+                        ]
+                    }
+                },
+            }
+        }
+    }
+])
+```
+
+# Validation.md
+
+## Exercice 1
+
+Modifiez la collection salle afin que soient dorénavant validés les documents destinés à y être insérés ; cette validation aura lieu en mode « strict » et portera sur les champs suivants :
+- nom sera obligatoire et devra être de type chaîne de caractères.
+- capacite sera obligatoire et devra être de type entier (int).
+- Dans le champ adresse, les champs codePostal et ville, tous deux de type chaîne de caractères, seront obligatoires.  
+
+```JS
+db.runCommand(
+    {
+        collMod: "salles",
+        validator: {
+            $jsonSchema: {
+                bsonType: "object",
+                required: ["nom", "capacite", "adresse.codePostal", "adresse.ville"],
+                properties: {
+                    nom: {
+                        bsonType: "string"
+                        description: "doit être une chaîne de caractères et est obligatoire"
+                    },
+                    capacite: {
+                        bsonType: "int",
+                        description: "doit être un entier et est obligatoire"
+                    },
+                    "adresse.codePostal": {
+                        bsonType: "string",
+                        description: "doit être une chaîne de caractères et est obligatoire"
+                    },
+                    "adresse.ville": {
+                        bsonType: "string",
+                        description: "doit être une chaîne de caractères et est obligatoire"
+                    }
+                }
+            }
+        }
+    }
+)
+
+db.runCommand(
+    {
+        collMod: "salles",
+        validator: {
+            $jsonSchema: {
+                bsonType: "object",
+                required: ["nom", "capacite", "adresse.codePostal", "adresse.ville"],
+                properties: {
+                    nom: {
+                    bsonType: "string",
+                    description: "doit être une chaîne de caractères et est obligatoire"
+                    },
+                    capacite: {
+                    bsonType: "int",
+                    description: "doit être un entier et est obligatoire"
+                    },
+                    adresse: {
+                        bsonType: "object",
+                        required: ["codePostal", "ville"],
+                        properties: {
+                            codePostal: {
+                                bsonType: "string",
+                                description: "doit être une chaîne de caractères et est obligatoire"
+                            },
+                            ville: {
+                                bsonType: "string",
+                                description: "doit être une chaîne de caractères et est obligatoire"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+)
+```
+
+Que constatez-vous lors de la tentative d’insertion suivante, et quelle en est la cause ?
+
+```JS
+db.salles.insertOne({ "nom": "Super salle", "capacite": 1500, "adresse": { "ville": "Musiqueville" } })
+```
+
+Que proposez-vous pour régulariser la situation ?
+
+```JS
+db.salles.insertOne({ "nom": "Super salle", "capacite": 1500, "adresse": { "ville": "Musiqueville", "codePostal": "69000" } })
+```
+
+## Exercice 2
+
+Rajoutez à vos critères de validation existants un critère supplémentaire : le champ _id devra dorénavant être de type entier (int) ou ObjectId.
+ 
+
+```JS
+db.runCommand(
+    {
+        collMod: "salles",
+        validator: {
+            $jsonSchema: {
+                bsonType: "object",
+                required: ["nom", "capacite", "adresse.codePostal", "adresse.ville"],
+                properties: {
+                    "_id": {
+                        bsonType: ["int", "objectId"],
+                        description: "doit être un entier ou un ObjectId et est obligatoire"
+                    },
+                    nom: {
+                        bsonType: "string",
+                        description: "doit être une chaîne de caractères et est obligatoire"
+                    },
+                    capacite: {
+                        bsonType: "int",
+                        description: "doit être un entier et est obligatoire"
+                    },
+                    adresse: {
+                        bsonType: "object",
+                        required: ["codePostal", "ville"],
+                        properties: {
+                            codePostal: {
+                                bsonType: "string",
+                                description: "doit être une chaîne de caractères et est obligatoire"
+                            },
+                            ville: {
+                                bsonType: "string",
+                                description: "doit être une chaîne de caractères et est obligatoire"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+)
+```
+
+Que se passe-t-il si vous tentez de mettre à jour l’ensemble des documents existants dans la collection à l’aide de la requête suivante :
+
+```JS
+
+```
+
+Supprimez les critères rajoutés à l’aide de la méthode delete en JavaScript
+
+```JS
+
+```
+
+## Exercice 3
+
+Rajoutez aux critères de validation existants le critère suivant :
+- Le champ smac doit être présent OU les styles musicaux doivent figurer parmi les suivants : "jazz", "soul", "funk" et "blues".
+
+```JS
+db.runCommand(
+    {
+        collMod: "salles",
+        validator: {
+            $jsonSchema: {
+                bsonType: "object",
+                required: ["nom", "capacite", "adresse.codePostal", "adresse.ville"],
+                properties: {
+                    "_id": {
+                        bsonType: ["int", "objectId"],
+                        description: "doit être un entier ou un ObjectId et est obligatoire"
+                    },
+                    nom: {
+                        bsonType: "string",
+                        description: "doit être une chaîne de caractères et est obligatoire"
+                    },
+                    capacite: {
+                        bsonType: "int",
+                        description: "doit être un entier et est obligatoire"
+                    },
+                    adresse: {
+                        bsonType: "object",
+                        required: ["codePostal", "ville"],
+                        properties: {
+                            codePostal: {
+                                bsonType: "string",
+                                description: "doit être une chaîne de caractères et est obligatoire"
+                            },
+                            ville: {
+                                bsonType: "string",
+                                description: "doit être une chaîne de caractères et est obligatoire"
+                            }
+                        }
+                    },
+                    smac: {
+                        bsonType: "string"
+                    },
+                    styles: {
+                        bsonType: "array",
+                        items: {
+                            enum: ["jazz", "soul", "funk", "blues"]
+                        }
+                    }
+                }
+            }
+        }
+    }
+)
+
+var test = db.getCollectionInfos( { name: "salles" } )[0].options.validator
+
+test.$or = [
+    {
+        "smac" : {
+            "$exists" : true
+        }
+    },
+    {
+        "styles" : {
+            "$exists" : true
+        }
+    }
+]
+
+db.runCommand({ collMod: "salles", validator: test })
+```
+
+Que se passe-t-il lorsque nous exécutons la mise à jour suivante ?
+
+```JS
+db.salles.update({ "_id": 3 }, { $set: { "verifie": false } })
+```
