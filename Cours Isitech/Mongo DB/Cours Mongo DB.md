@@ -307,7 +307,255 @@ db.eleves.find({"notes.0.note": {$lt: 10}})
 
 ## Le tri
 
-curseur.sort(<tri>)
+curseur.sort(< tri >)
+
+# Les Index
+
+Permet de trouver rapidement une donnée, c'est un dictionnaire des données.
+Ralenti les operations d'ecriture (update, insert, delete), c'est négligable par rapport, au temps gagner.
+
+On index en priorité les champs ciblé par les requetes de notre application.
+
+Par exemple un filtre, permet de trouver plus rapidement les champs rechercher.
+
+**La nature de votre application devra impacter votre logique d'indexation : est-elle orientée écriture (write-heavy) ? ou la lecture (read-heavy) ?**
+Il doit être adapter a l'usage !
+
+```js
+db.collection.createIndex(< champ + type >, < option >)
+
+db.personnes.createIndex({"age": -1})
+db.personnes.createIndex({"age": -1}, {"name": "index_age", "background": true}, {"collation": {"local": "fr"}})
+
+db.personnes.getIndexes()
+
+db.personnes.dropIndex("age_-1")
+```
+
+Index composé, porte sur plus d'un champs. L'ordre est important
+
+MongoDB permet l'utilisation de deuxn tyês d'index qui permettent de gerer les requetes geospatiales :
+- les index de type `2dsphere` sont utilisees par des requetes goespaciales intervenant sur une surface spherique
+- les index `2d` concernent des requetes intervenent sur le plan Euclidien.
+Pour un champ nomme  `donnnesSpaciales` d'une collection `cartgraphie` vous pouvez par exemple creer un index 
+```js
+db.cartographie.createIndex({"donneesSpaciales": 2d})
+```
+
+Pour la creation d'index '2dsphere' on utilisera plutot :
+```js
+db.cartographie.createIndex({"donneesSpaciales": "2dsphere"})
+```
+
+
+Les index 2d font intervenir des coordonnes de type `legacy`
+
+```js
+db.plan.insertOne({ "nom": "firstPoint", "geodata": [1,1] })
+
+db.plan.insertOne({ "nom": "firstPoint", "geodata": ["lon":1, "lat":1] })
+```
+
+## Les objets GeoJSON
+
+{ type <type d'objet>, coordinates: < coord >}
+
+## Type de point
+
+Un point est un tableau de coordonée
+```js
+{
+	"type": "point",
+	"coordinates": [ 14.0 , 1.0 ]
+}
+```
+
+## Le type MultiPoint
+
+Le multipoint est un tableau de point.
+```js
+{
+	"type": "MultiPoint",
+	"coordinates": [
+		[ 14.0 , 1.0 ], [ 14.0 , 1.0 ]
+	]
+}
+```
+
+## Le type LineString
+
+La ligne est un tableau de point.
+```js
+{
+	"type": "LineString",
+	"coordinates": [
+		[ 14.0 , 1.0 ], [ 14.0 , 1.0 ]
+	]
+}
+```
+
+## Le type Polyon
+
+Le polygone est un tableau de ligne.
+```js
+{
+	"type": "Polygon",
+	"coordinates": [
+	[
+		[ 14.0 , 1.0 ], [ 14.0 , 1.0 ]
+	],
+	[
+		[ 14.0 , 1.0 ], [ 14.0 , 1.0 ]
+	]
+	]
+}
+```
+
+## L'operateur $nearSphere
+
+```js
+{
+	$nearSphere: {
+		$geometry: {
+			type: "Point",
+			coordinates: [<longitude>, <latitude>]
+		},
+		$minDistance: <distance en metres>,
+		$macDistance: <distance en metres>
+	}
+}
+
+{
+	$nearSphere: [<x>, <y>]
+	$minDistance: <distance en metres>,
+	$macDistance: <distance en metres>
+}
+```
+
+## L'operateur $geoWithin
+Cet operateur n'effectue aucun tri et ne necessite pas la creation d'un index geospaciale, on utilise de la maniere suivante :
+```js
+{
+	<champ des documetns contenant les coordonnees> : {
+		$geoWithin : {
+			<operateur de forme>: <coordonnes>
+		}
+	}
+}
+```
+
+```js
+var polygon = [
+	...
+]
+```
+
+La requete suivante utilise ce polygone :
+```js
+db.avignon2d.find({
+	"localisation": {
+		$geoWithin: {
+			$geometry : {
+				"type": "Polygon"
+				coordinates: [polygone]
+			}
+		}
+	}
+})
+```
+
+## L'operateur $addFields
+
+``{ $addFields: { <nouveau champs> : <expression>, ... }}
+
+```js
+db.personnes.aggregate([
+	{
+		$addFields : {
+			"numero_secu_s" : ""
+		}
+	}
+])
+
+// l'equivalent en $project
+db.personnes.aggregate([
+	{
+		$project : {
+			...
+			"numero_secu_s" : 1
+		}
+	}
+])
+```
+
+## L'operateur $group
+
+```js
+{
+	$group: {
+		"_id": <expression>,
+		<champ>: { <operateur d'accumulation> }
+	}
+}
+```
+
+Operateur d'accumulation: `$push`, `$sum`, `$avg`, `$min`, `$max`
+
+Exemple :
+```js
+// Retourne le nombre de personnes par age
+var pipeline = [{
+	$group: {
+		"_id": "$age",
+		"nombre_personnes": { $num: 1}
+	}
+},{
+	$sort: {
+		"nombre_personnes": 1
+	}
+}]
+
+db.personnes.aggregate(pipeline)
+
+// Equivalent à ça :
+
+db.personnes.aggregate([
+ {
+	 $sortByCount: "$age"
+ }
+])
+
+// Retourne simplement de nombre de personne
+
+var pipeline = [{
+	$group: {
+		"_id": null,
+		"nombre_personnes": { $sum: 1}
+	}
+}]
+
+//
+
+var pipeline = [{
+	$match: {
+		"age": { $exists: true}
+	}
+},{
+	$groupe : {
+		"_id":null,
+		"avg": {
+			$avg: "$age"
+		}
+	}
+},{
+	$project: {
+		"_id": 0,
+		"Age_moyen": {
+			$ceil: "$avg"
+		}
+	}
+}]
+```
 
 # Pour exo :
 
@@ -316,3 +564,5 @@ curseur.sort(<tri>)
 - la renomer
 - la supprimer
 - Faire la doc de 'findAndModify'
+
+ - **Faire diminuer le temps de l'ecture grace à une indexation !!** (Doit avoir énormément de donnée)
