@@ -4,18 +4,35 @@
     "type": "split",
     "children": [
       {
-        "id": "0311f16aa773314f",
+        "id": "7150a80392756c9e",
         "type": "tabs",
         "children": [
           {
-            "id": "6b58ed083ef2188a",
+            "id": "07b436eefe52fcd1",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "Okteo/Formation/GitHub.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "f01c27e290b704fd",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Linux Server.md",
+                "mode": "source",
+                "source": false
+              }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -99,7 +116,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "Linux Server.md"
+              }
             }
           },
           {
@@ -108,6 +127,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "Linux Server.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -124,6 +144,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "Linux Server.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -134,7 +155,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -146,10 +168,20 @@
       "command-palette:Ouvrir la palette de commandes": false
     }
   },
-  "active": "6b58ed083ef2188a",
+  "active": "f01c27e290b704fd",
   "lastOpenFiles": [
-    "Cours Isitech/Mongo DB/TP MongoDB Note Restaurants.md",
+    "Okteo/Formation/GitHub.md",
     "Cours Isitech/Cours C Sharp/Création API/Mise en place Dotnet.md",
+    "Linux Server.md",
+    "Shippee a faire.md",
+    "Okteo/Alternance/Géodia.md",
+    "Okteo/Formation/Etat de l'art.md",
+    "Okteo/Formation",
+    "Cours Isitech/Cours React/Cours React.js.md",
+    "Okteo/Alternance/Suivit du dérouler.md",
+    "Okteo/Alternance",
+    "Okteo",
+    "Cours Isitech/Mongo DB/TP MongoDB Note Restaurants.md",
     "Cours Isitech/Mongo DB/Exo Mongo DB.md",
     "Cours Isitech/Mongo DB/Cours Mongo DB.md",
     "Cours Isitech/Mongo DB/Pasted image 20230209161127.png",
