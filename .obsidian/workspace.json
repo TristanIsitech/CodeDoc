@@ -4,35 +4,22 @@
     "type": "split",
     "children": [
       {
-        "id": "7150a80392756c9e",
+        "id": "b6a837cd6a8387c4",
         "type": "tabs",
         "children": [
           {
-            "id": "07b436eefe52fcd1",
+            "id": "f2a89312f1c9fa54",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Okteo/Formation/GitHub.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "f01c27e290b704fd",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Linux Server.md",
+                "file": "AutoFormation/Linux/Docker/Docker.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -90,7 +77,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 249.5
+    "width": 247.5
   },
   "right": {
     "id": "a493c840a34659b6",
@@ -117,7 +104,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Linux Server.md"
+                "file": "AutoFormation/Linux/Docker/Docker.md"
               }
             }
           },
@@ -127,7 +114,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Linux Server.md",
+                "file": "AutoFormation/Linux/Docker/Docker.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -144,7 +131,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Linux Server.md",
+                "file": "AutoFormation/Linux/Docker/Docker.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -155,8 +142,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -168,17 +154,25 @@
       "command-palette:Ouvrir la palette de commandes": false
     }
   },
-  "active": "f01c27e290b704fd",
+  "active": "f2a89312f1c9fa54",
   "lastOpenFiles": [
+    "AutoFormation/CD CI/GitHub Actions.md",
+    "AutoFormation/Linux/Déploiement Linux Server.md",
+    "AutoFormation/CD CI",
+    "AutoFormation/Linux/Docker/Docker.md",
+    "AutoFormation/Mobil/React Native/Les bases.md",
+    "AutoFormation/Mobil/NET MAUI Blazor/Les bases.md",
+    "Doc API web free/PokeApi Doc.md",
+    "Okteo/Alternance/Suivit du dérouler.md",
+    "AutoFormation/Linux",
+    "AutoFormation/Linux/Docker",
+    "Shippee a faire.md",
     "Okteo/Formation/GitHub.md",
     "Cours Isitech/Cours C Sharp/Création API/Mise en place Dotnet.md",
-    "Linux Server.md",
-    "Shippee a faire.md",
     "Okteo/Alternance/Géodia.md",
     "Okteo/Formation/Etat de l'art.md",
     "Okteo/Formation",
     "Cours Isitech/Cours React/Cours React.js.md",
-    "Okteo/Alternance/Suivit du dérouler.md",
     "Okteo/Alternance",
     "Okteo",
     "Cours Isitech/Mongo DB/TP MongoDB Note Restaurants.md",
@@ -189,7 +183,6 @@
     "Cours Isitech/Mongo DB/Pasted image 20230209161157.png",
     "Cours Isitech/Mongo DB/Pasted image 20230209161211.png",
     "Cours Isitech/Mongo DB/QCM.md",
-    "Pasted image 20230208140011.png",
-    "Doc API web free/PokeApi Doc.md"
+    "Pasted image 20230208140011.png"
   ]
 }
